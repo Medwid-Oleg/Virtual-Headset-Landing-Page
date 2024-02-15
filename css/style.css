@@ -261,8 +261,12 @@ header{
 .follow-us-ul li:hover{
 	cursor: pointer;
 }
+.follow-us-ul li:hover img{
+	width: 28px;
+}
 .follow-us-ul img{
 	width: 24px;
+	transition: all 0.2s ease;
 }
 
 .header-right-section{
@@ -902,6 +906,7 @@ header{
 /* SECTION 3 */
 
 .section3{
+	/* overflow: auto; */
 	margin-top: 250px;
 	max-width: 1410px;
 	margin-left: auto;
@@ -929,6 +934,7 @@ header{
 }
 .left-arrow,
 .right-arrow{
+	user-select: none;
 	width: 56px;
 	height: 56px;
 	border-radius: 4px;
@@ -945,15 +951,20 @@ header{
 	cursor: pointer;
 }
 .games-container{
+	user-select: none;
 	display: flex;
 	flex-direction: row;
 	margin-top: 64px;
+	transition: all 0.3s ease;
 }
 figure{
 	margin-left: 52px;
 }
 figure:first-child{
 	margin-left: 0;
+}
+figure:hover{
+	cursor: pointer;
 }
 figure:hover figcaption{
 	color: #BD00FF;
@@ -1020,6 +1031,9 @@ figcaption{
 	figcaption{
 		font-size: 16px;
 	}
+	.games-container{
+		overflow-x: scroll;
+	}
 }
 
 /* F.A.Q. SECTION */
@@ -1037,6 +1051,8 @@ figcaption{
 	list-style: none;
 }
 .faq-list-item{
+	user-select: none;
+	overflow: hidden;
 	margin-top: 24px;
 	width: 928px;
 	height: 95px;
@@ -1044,10 +1060,25 @@ figcaption{
 	padding: 32px 40px;
 	background-color: rgba(255, 255, 255, 0.05);
 	position: relative;
-	display: flex;
+	text-align: left;
+	transition: all 0.3s ease;
+}
+.faq-list-item p{
+	display: none;
 }
 .faq-list-item:first-child{
 	margin-top: 0;
+}
+.faq-list-item:hover{
+	cursor: pointer;
+}
+
+.faq-list-item-expanded{
+	height: 175px;
+}
+.faq-list-item-expanded p{
+	margin-top: 24px;
+	display: block;
 }
 .faq-list-title{
 	font-size: 24px;
@@ -1087,21 +1118,42 @@ figcaption{
 	}
 	.faq-list{
 		margin-top: 24px;
-		width: 100%;
+		width: fit-content;
 	}
 	.faq-list-item{
-		width: 100%;
+		text-align: center;
+		width: 420px;
 		height: 71px;
 		padding: 13px 27px;
 	}
+	.faq-list-item-expanded{
+		height: 170px;
+	}
 	.faq-list-title{
 		font-size: 16px;
+	}
+	.faq-list-title-second{
+		margin-top: 10px;
+	}
+	.faq-list-item-expanded p{
+		margin-top: 10px;
 	}
 	.faq-list-img{
 		width: 21px;
 		height: 21px;
 		top: 24px;
 		right: 9px;
+	}
+}
+@media (max-width: 450px){
+	.faq-list-item{
+		width: 290px;
+	}
+	.faq-list-item-expanded{
+		height: 200px;
+	}
+	.faq-list-title-second{
+		margin-top: 0;
 	}
 }
 
@@ -1126,12 +1178,14 @@ footer{
 }
 .footer-links-container img{
 	margin-left: 24px;
+	transition: all 0.2s ease;
 }
 .footer-links-container img:first-child{
 	margin-left: 0;
 }
 .footer-links-container img:hover{
 	cursor: pointer;
+	transform: scale(1.1);
 }
 .footer-phone-number{
 	font-size: 16px;
